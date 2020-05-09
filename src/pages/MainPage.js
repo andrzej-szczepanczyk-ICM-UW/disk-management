@@ -27,11 +27,27 @@ class MainPage extends React.Component{
     });
   }
 
+  addDrive = () => {
+
+  }
+
     render() {
+      const bar = {
+        width: '400px',
+        height: 5,
+        position: 'relative',
+        border: '1px solid black'
+      };
+
+      const fill = {
+        height: '100%',
+        background: 'black'
+      };
+
         return(
             <div>
             <h1>Zarzadzanie dyskami zdalnymi</h1>
-            <button onclick="dodajDysk">Dodaj dysk</button>
+            <button onClick={this.addDrive}>Dodaj dysk</button>
             <div>
                 {this.state.disks.map((value, index) => {
                     return (
@@ -43,6 +59,10 @@ class MainPage extends React.Component{
                                 <b>type:</b> {value.type}
                                 <b>usage:</b> {value.usage}
                                 <b>space:</b> {value.space}
+                              </div>
+                              <div style={bar}>
+                                <div style={{...fill, width: `${value.usage/value.space*100}%`}}>
+                                </div>
                               </div>
                             <img style={{flexGrow:2}} src="trash.svg" onclick={() => this.delete(value.id)} height={50}/>
                             </div>
