@@ -1,8 +1,8 @@
-import {withRouter} from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 function Nav(props) {
-    console.log(props)
-    return "  "
+  console.log(props);
+  return "  ";
 }
 
-export default withRouter(Nav)
+export default withRouter(Nav);
